@@ -10,7 +10,11 @@ namespace CipherService
 {
     public class Cipher : ICipherService
     {
-        private const string _KEY = "a1B2c34D5e6";
+        private const string _KEY = "my-very-long-key";
+
+        public Cipher()
+        {
+        }
 
         public string Encrypt(string input)
         {
@@ -88,12 +92,15 @@ namespace CipherService
         }
         public async Task<string> EncryptAsync(string input)
         {
-            return await Task.FromResult(this.Encrypt(input));
+            throw new NotImplementedException();
+            //var protector = _dataProtectionProvider.CreateProtector(KEY);
+            //return await Task.FromResult(protector.Protect(input));
         }
         public async Task<string> DecryptAsync(string cipheredText)
         {
-            return await Task.FromResult(Decrypt(cipheredText));
+            throw new NotImplementedException();
+            //var protector = _dataProtectionProvider.CreateProtector(KEY);
+            //return await Task.FromResult(protector.Unprotect(cipheredText));
         }
-
     }
 }
